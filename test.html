@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.semanticui.min.css">
 </head>
 <body style="padding: 15px;">
-    <table id="music" class="ui celled table" style="width: 100%;">
+    <table id="table1" class="ui celled table" style="width: 100%;">
         <thead>
             <th>id</th>
             <th>listenyear</th>
@@ -26,11 +26,23 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
 <script>
     $(document).ready(function(){
-        $("#music").DataTable({
+
+      var myTable =  $("#table1").DataTable({
             "ajax" : {
                 "url" : "https://jhhouse.herokuapp.com/postgres",
-                "type" : "GET"
-            }
+                "type" : "GET",
+                "dataSrc" : "",
+            
+            },
+            "columns": [
+            { data: "id" },
+            { data: "listenyear" },
+            { data: "releasedyear" },
+            { data: "artist" },
+            { data: "title" },
+            { data: "genre" },
+            { data: "sharetoohters" }
+        ]
         });
 
     });
